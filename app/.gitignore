@@ -36,7 +36,7 @@ bin/
 ### VS Code ###
 .vscode/
 
-demo.cast
+demo*.cast
 
 ### Mac OS ###
 .DS_Store
