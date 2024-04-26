@@ -29,4 +29,15 @@ public class Check {
                 + "Correct answer was " + "'" + trueAnswer + "'" + ".");
         System.out.println("Let's try again, " + name + "!");
     }
+
+    public static String checkGcd(int numberA, int numberB) {
+        int count = Math.min(numberA, numberB);
+        for (int n = count; n >= 1; n--) {
+            if (numberA % n == 0 && numberB % n == 0) {
+                count = n;
+                break;
+            }
+        }
+        return count + "";
+    }
 }

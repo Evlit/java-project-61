@@ -37,6 +37,7 @@ bin/
 .vscode/
 
 demo*.cast
+README.md
 
 ### Mac OS ###
 .DS_Store
