@@ -6,8 +6,9 @@ import java.util.Scanner;
 import hexlet.code.games.Even;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Gcd;
+import hexlet.code.games.Progression;
 
-public class GameSelect {
+public class Engine {
     public static void game(int gameNumber) {
         Random random = new Random();
         Scanner s = new Scanner(System.in);
@@ -23,6 +24,9 @@ public class GameSelect {
                 break;
             case 4:
                 Gcd.gcdGame(random, countGames, namePlayer, s);
+                break;
+            case 5:
+                Progression.progressionGame(random, countGames, namePlayer, s);
                 break;
             default:
                 break;
