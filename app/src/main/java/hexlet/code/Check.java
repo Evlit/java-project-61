@@ -40,4 +40,16 @@ public class Check {
         }
         return count + "";
     }
+
+    public static String checkPrime(int number) {
+        if (number < 2) {
+            return "no";
+        }
+        for (int i = 2; i < number / 2; i++) {
+            if (number % i == 0) {
+                return "no";
+            }
+        }
+        return "yes";
+    }
 }

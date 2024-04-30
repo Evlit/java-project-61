@@ -7,6 +7,7 @@ import hexlet.code.games.Even;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Gcd;
 import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 
 public class Engine {
     public static void game(int gameNumber) {
@@ -28,7 +29,11 @@ public class Engine {
             case 5:
                 Progression.progressionGame(random, countGames, namePlayer, s);
                 break;
+            case 6:
+                Prime.primeGame(random, countGames, namePlayer, s);
+                break;
             default:
+                System.out.println("Goodbye");
                 break;
         }
     }

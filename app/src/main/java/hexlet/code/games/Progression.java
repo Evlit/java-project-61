@@ -11,7 +11,7 @@ public class Progression {
         int correct = 0;
         while (correct < countGames) {
             int start = random.nextInt(50);
-            int step = random.nextInt(2,6);
+            int step = random.nextInt(2, 6);
             int blank = random.nextInt(10);
             String question = "";
             amount[0] = start;
