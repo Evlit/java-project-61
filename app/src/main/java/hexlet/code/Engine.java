@@ -15,7 +15,7 @@ public class Engine {
         Scanner s = new Scanner(System.in);
         int countGames = 3;
         String namePlayer = Greeting.getMame();
-        System.out.println("Hello, " + namePlayer);
+        System.out.println("Hello, " + namePlayer + "!");
         switch (gameNumber) {
             case 2:
                 Even.evenGame(random, countGames, namePlayer, s);

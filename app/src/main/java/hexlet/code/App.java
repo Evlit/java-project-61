@@ -11,6 +11,7 @@ public class App {
         Scanner s = new Scanner(System.in);
         try {
             int game = s.nextInt();
+            System.out.println("Your choice: " + game + "\n");
             if (game != 0) {
                 if (game > 0 && game <= 6) {
                     Engine.game(game);
