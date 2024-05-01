@@ -11,10 +11,12 @@ public class App {
         Scanner s = new Scanner(System.in);
         try {
             int game = s.nextInt();
-            if (game >= 0 && game <= 6) {
-                Engine.game(game);
-            } else {
-                System.out.println("Incorrect input");
+            if (game != 0) {
+                if (game > 0 && game <= 6) {
+                    Engine.game(game);
+                } else {
+                    System.out.println("Incorrect input");
+                }
             }
         } catch (InputMismatchException err) {
             System.out.println("Type a number, not a text");

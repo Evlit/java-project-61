@@ -33,7 +33,7 @@ public class Engine {
                 Prime.primeGame(random, countGames, namePlayer, s);
                 break;
             default:
-                System.out.println("Goodbye");
+                //System.out.println("Goodbye");
                 break;
         }
     }
