@@ -9,18 +9,17 @@ public class Prime {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         int correct = 0;
         while (correct < countGames) {
-            int randomNumber = random.nextInt(100);
+            int randomNumber = random.nextInt(90);
             System.out.println("Question: " + randomNumber);
             System.out.println("Your answer:");
             String answer = s.nextLine();
             String correctAnswer = Check.checkPrime(randomNumber);
-            if (correctAnswer.equals(answer.toLowerCase())) {
-                System.out.println("Correct!");
-                correct++;
-            } else {
+            if (!correctAnswer.equals(answer.toLowerCase())) {
                 Check.failed(correctAnswer, answer.toLowerCase(), namePlayer);
                 break;
             }
+            System.out.println("Correct!");
+            correct++;
         }
         if (correct == 3) {
             System.out.println("Congratulations, " + namePlayer + "!");
