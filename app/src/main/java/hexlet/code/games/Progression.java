@@ -6,12 +6,15 @@ import hexlet.code.Check;
 
 public class Progression {
     public static void progressionGame(Random random, int countGames, String namePlayer, Scanner s) {
+        final int randomStart = 50;
+        final int randomStep = 6;
+        final int randomBlank = 10;
         System.out.println("What number is missing in the progression?");
         int correct = 0;
         while (correct < countGames) {
-            int start = random.nextInt(50);
-            int step = random.nextInt(2, 6);
-            int blank = random.nextInt(10);
+            int start = random.nextInt(randomStart);
+            int step = random.nextInt(2, randomStep);
+            int blank = random.nextInt(randomBlank);
             String[] numbers = Check.getProgression(start, step);
             String correctAnswer = numbers[blank];
             numbers[blank] = "..";
@@ -26,7 +29,7 @@ public class Progression {
             System.out.println("Correct!");
             correct++;
         }
-        if (correct == 3) {
+        if (correct == countGames) {
             System.out.println("Congratulations, " + namePlayer + "!");
         }
     }

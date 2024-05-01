@@ -54,8 +54,9 @@ public class Check {
     }
 
     public static String[] getProgression(int start, int step) {
-        int[] amount = new int[10];
-        String[] string = new String[10];
+        final int longArray = 10;
+        int[] amount = new int[longArray];
+        String[] string = new String[longArray];
         amount[0] = start;
         string[0] = String.valueOf(start);
         for (int i = 1; i < amount.length; i++) {

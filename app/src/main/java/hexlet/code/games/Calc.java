@@ -7,13 +7,16 @@ import hexlet.code.Check;
 public class Calc {
     public static void calculator(Random random, int countGames, String namePlayer, Scanner s) {
         String[] operators = {"+", "-", "*"};
+        final int randomOper = 3;
+        final int randomA = 20;
+        final int randomB = 20;
         System.out.println("What is the result of the expression?");
         int correct = 0;
         while (correct < countGames) {
-            int i = random.nextInt(3);
+            int i = random.nextInt(randomOper);
             String operator = operators[i];
-            int numberA = random.nextInt(20);
-            int numberB = random.nextInt(20);
+            int numberA = random.nextInt(randomA);
+            int numberB = random.nextInt(randomB);
             System.out.println("Question: " + numberA + " " + operator + " " + numberB);
             System.out.println("Your answer:");
             String answer = s.nextLine();
@@ -26,7 +29,7 @@ public class Calc {
                 break;
             }
         }
-        if (correct == 3) {
+        if (correct == countGames) {
             System.out.println("Congratulations, " + namePlayer + "!");
         }
     }

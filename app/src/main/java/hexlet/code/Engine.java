@@ -13,27 +13,31 @@ public class Engine {
     public static void game(int gameNumber) {
         Random random = new Random();
         Scanner s = new Scanner(System.in);
-        int countGames = 3;
+        final int countGames = 3;
+        final int gameNumber2 = 2;
+        final int gameNumber3 = 3;
+        final int gameNumber4 = 4;
+        final int gameNumber5 = 5;
+        final int gameNumber6 = 6;
         String namePlayer = Greeting.getMame();
         System.out.println("Hello, " + namePlayer + "!");
         switch (gameNumber) {
-            case 2:
+            case gameNumber2:
                 Even.evenGame(random, countGames, namePlayer, s);
                 break;
-            case 3:
+            case gameNumber3:
                 Calc.calculator(random, countGames, namePlayer, s);
                 break;
-            case 4:
+            case gameNumber4:
                 Gcd.gcdGame(random, countGames, namePlayer, s);
                 break;
-            case 5:
+            case gameNumber5:
                 Progression.progressionGame(random, countGames, namePlayer, s);
                 break;
-            case 6:
+            case gameNumber6:
                 Prime.primeGame(random, countGames, namePlayer, s);
                 break;
             default:
-                //System.out.println("Goodbye");
                 break;
         }
     }

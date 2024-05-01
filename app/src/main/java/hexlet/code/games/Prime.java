@@ -6,10 +6,11 @@ import hexlet.code.Check;
 
 public class Prime {
     public static void primeGame(Random random, int countGames, String namePlayer, Scanner s) {
+        final int randomPrime = 90;
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         int correct = 0;
         while (correct < countGames) {
-            int randomNumber = random.nextInt(90);
+            int randomNumber = random.nextInt(randomPrime);
             System.out.println("Question: " + randomNumber);
             System.out.println("Your answer:");
             String answer = s.nextLine();
@@ -21,7 +22,7 @@ public class Prime {
             System.out.println("Correct!");
             correct++;
         }
-        if (correct == 3) {
+        if (correct == countGames) {
             System.out.println("Congratulations, " + namePlayer + "!");
         }
     }

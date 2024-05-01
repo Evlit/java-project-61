@@ -6,11 +6,13 @@ import hexlet.code.Check;
 
 public class Gcd {
     public static void gcdGame(Random random, int countGames, String namePlayer, Scanner s) {
+        final int randomA = 100;
+        final int randomB = 100;
         System.out.println("Find the greatest common divisor of given numbers.");
         int correct = 0;
         while (correct < countGames) {
-            int numberA = random.nextInt(100);
-            int numberB = random.nextInt(100);
+            int numberA = random.nextInt(randomA);
+            int numberB = random.nextInt(randomB);
             System.out.println("Question: " + numberA + " "  + numberB);
             System.out.println("Your answer:");
             String answer = s.nextLine();
@@ -23,7 +25,7 @@ public class Gcd {
                 break;
             }
         }
-        if (correct == 3) {
+        if (correct == countGames) {
             System.out.println("Congratulations, " + namePlayer + "!");
         }
     }
