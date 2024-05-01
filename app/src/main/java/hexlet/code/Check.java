@@ -52,4 +52,16 @@ public class Check {
         }
         return "yes";
     }
+
+    public static String[] getProgression(int start, int step) {
+        int[] amount = new int[10];
+        String[] string = new String[10];
+        amount[0] = start;
+        string[0] = String.valueOf(start);
+        for (int i = 1; i < amount.length; i++) {
+            amount[i] = amount[i - 1] + step;
+            string[i] = String.valueOf(amount[i]);
+        }
+        return string;
+    }
 }

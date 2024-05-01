@@ -2,6 +2,7 @@ package hexlet.code.games;
 
 import java.util.Random;
 import java.util.Scanner;
+
 import hexlet.code.Check;
 
 public class Even {
