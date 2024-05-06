@@ -1,36 +1,25 @@
 package hexlet.code.games;
 
-import java.util.Random;
-import java.util.Scanner;
 import hexlet.code.Check;
+import hexlet.code.ConfigRandom;
+import hexlet.code.Engine;
 
 public class Progression {
-    public static void progressionGame(Random random, int countGames, String namePlayer, Scanner s) {
-        final int randomStart = 50;
-        final int randomStep = 6;
-        final int randomBlank = 10;
-        System.out.println("What number is missing in the progression?");
-        int correct = 0;
-        while (correct < countGames) {
-            int start = random.nextInt(randomStart);
-            int step = random.nextInt(2, randomStep);
-            int blank = random.nextInt(randomBlank);
+    public static void progressionGame() {
+        String rule = "What number is missing in the progression?";
+        String[][] data = new String[ConfigRandom.COUNTGAMES][2];
+        for (int i = 0; i < ConfigRandom.COUNTGAMES; i++) {
+            int start = Check.getRandom(ConfigRandom.START_RANDOM_PROGRESSION_GAME);
+            int step = Check.getRandom(ConfigRandom.POSITION_RANDOM_PROGRESSION_GAME,
+                    ConfigRandom.STEP_RANDOM_PROGRESSION_GAME);
+            int blank = Check.getRandom(ConfigRandom.BLANK_RANDOM_PROGRESSION_GAME);
             String[] numbers = Check.getProgression(start, step);
             String correctAnswer = numbers[blank];
             numbers[blank] = "..";
             String question = String.join(" ", numbers);
-            System.out.println("Question: " + question);
-            System.out.println("Your answer:");
-            String answer = s.nextLine();
-            if (!correctAnswer.equals(answer.toLowerCase())) {
-                Check.failed(correctAnswer, answer.toLowerCase(), namePlayer);
-                break;
-            }
-            System.out.println("Correct!");
-            correct++;
+            data[i][0] = "Question: " + question;
+            data[i][1] = correctAnswer;
         }
-        if (correct == countGames) {
-            System.out.println("Congratulations, " + namePlayer + "!");
-        }
+        Engine.game(rule, data);
     }
 }

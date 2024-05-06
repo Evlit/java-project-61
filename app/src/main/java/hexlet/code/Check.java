@@ -1,5 +1,7 @@
 package hexlet.code;
 
+import java.util.Random;
+
 public class Check {
     public static String checkEven(int number) {
         if (number % 2 == 0) {
@@ -22,12 +24,6 @@ public class Check {
                 break;
         }
         return result + "";
-    }
-
-    public static void failed(String trueAnswer, String badAnswer, String name) {
-        System.out.println("'" + badAnswer + "'" + " is wrong answer ;(. "
-                + "Correct answer was " + "'" + trueAnswer + "'" + ".");
-        System.out.println("Let's try again, " + name + "!");
     }
 
     public static String checkGcd(int numberA, int numberB) {
@@ -64,5 +60,17 @@ public class Check {
             string[i] = String.valueOf(amount[i]);
         }
         return string;
+    }
+
+    public static int getRandom(int number) {
+        Random random = new Random();
+        int newRandom = random.nextInt(number);
+        return newRandom;
+    }
+
+    public static int getRandom(int position, int number) {
+        Random random = new Random();
+        int newRandom = random.nextInt(position, number);
+        return newRandom;
     }
 }

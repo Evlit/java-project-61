@@ -1,29 +1,18 @@
 package hexlet.code.games;
 
-import java.util.Random;
-import java.util.Scanner;
 import hexlet.code.Check;
+import hexlet.code.ConfigRandom;
+import hexlet.code.Engine;
 
 public class Prime {
-    public static void primeGame(Random random, int countGames, String namePlayer, Scanner s) {
-        final int randomPrime = 90;
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        int correct = 0;
-        while (correct < countGames) {
-            int randomNumber = random.nextInt(randomPrime);
-            System.out.println("Question: " + randomNumber);
-            System.out.println("Your answer:");
-            String answer = s.nextLine();
-            String correctAnswer = Check.checkPrime(randomNumber);
-            if (!correctAnswer.equals(answer.toLowerCase())) {
-                Check.failed(correctAnswer, answer.toLowerCase(), namePlayer);
-                break;
-            }
-            System.out.println("Correct!");
-            correct++;
+    public static void primeGame() {
+        String rule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+        String[][] data = new String[ConfigRandom.COUNTGAMES][2];
+        for (int i = 0; i < ConfigRandom.COUNTGAMES; i++) {
+            int randomNumber = Check.getRandom(ConfigRandom.MAX_RANDOM_PRIME_GAME);
+            data[i][0] = "Question: " + randomNumber;
+            data[i][1] = Check.checkPrime(randomNumber);
         }
-        if (correct == countGames) {
-            System.out.println("Congratulations, " + namePlayer + "!");
-        }
+        Engine.game(rule, data);
     }
 }

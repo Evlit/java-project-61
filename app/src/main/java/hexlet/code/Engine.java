@@ -1,44 +1,28 @@
 package hexlet.code;
 
-import java.util.Random;
 import java.util.Scanner;
 
-import hexlet.code.games.Even;
-import hexlet.code.games.Calc;
-import hexlet.code.games.Gcd;
-import hexlet.code.games.Progression;
-import hexlet.code.games.Prime;
-
 public class Engine {
-    public static void game(int gameNumber) {
-        Random random = new Random();
+    public static void game(String rule, String[][] data) {
         Scanner s = new Scanner(System.in);
-        final int countGames = 3;
-        final int gameNumber2 = 2;
-        final int gameNumber3 = 3;
-        final int gameNumber4 = 4;
-        final int gameNumber5 = 5;
-        final int gameNumber6 = 6;
-        String namePlayer = Greeting.getMame();
-        System.out.println("Hello, " + namePlayer + "!");
-        switch (gameNumber) {
-            case gameNumber2:
-                Even.evenGame(random, countGames, namePlayer, s);
-                break;
-            case gameNumber3:
-                Calc.calculator(random, countGames, namePlayer, s);
-                break;
-            case gameNumber4:
-                Gcd.gcdGame(random, countGames, namePlayer, s);
-                break;
-            case gameNumber5:
-                Progression.progressionGame(random, countGames, namePlayer, s);
-                break;
-            case gameNumber6:
-                Prime.primeGame(random, countGames, namePlayer, s);
-                break;
-            default:
-                break;
+        System.out.println("Welcome to the Brain Games!");
+        System.out.println("May I have your name?");
+        String name = s.nextLine();
+        System.out.println("Hello, " + name + "!");
+        System.out.println(rule);
+        for (int i = 0; i < ConfigRandom.COUNTGAMES; i++) {
+            System.out.println(data[i][0]);
+            System.out.println("Your answer:");
+            String answer = s.nextLine();
+            if (data[i][1].equals(answer.toLowerCase())) {
+                System.out.println("Correct!");
+            } else {
+                System.out.println("'" + answer + "'" + " is wrong answer ;(. "
+                        + "Correct answer was " + "'" + data[i][1] + "'" + ".");
+                System.out.println("Let's try again, " + name + "!");
+                return;
+            }
         }
+        System.out.println("Congratulations, " + name + "!");
     }
 }

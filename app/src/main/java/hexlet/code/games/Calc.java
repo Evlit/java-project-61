@@ -1,36 +1,23 @@
 package hexlet.code.games;
 
-import java.util.Random;
-import java.util.Scanner;
 import hexlet.code.Check;
+import hexlet.code.ConfigRandom;
+import hexlet.code.Engine;
 
 public class Calc {
-    public static void calculator(Random random, int countGames, String namePlayer, Scanner s) {
+    public static void calculator() {
         String[] operators = {"+", "-", "*"};
-        final int randomOper = 3;
-        final int randomA = 20;
-        final int randomB = 20;
-        System.out.println("What is the result of the expression?");
-        int correct = 0;
-        while (correct < countGames) {
-            int i = random.nextInt(randomOper);
-            String operator = operators[i];
-            int numberA = random.nextInt(randomA);
-            int numberB = random.nextInt(randomB);
-            System.out.println("Question: " + numberA + " " + operator + " " + numberB);
-            System.out.println("Your answer:");
-            String answer = s.nextLine();
-            String correctAnswer = Check.checkCalc(numberA, numberB, operator);
-            if (correctAnswer.equals(answer.toLowerCase())) {
-                System.out.println("Correct!");
-                correct++;
-            } else {
-                Check.failed(correctAnswer, answer.toLowerCase(), namePlayer);
-                break;
-            }
+        String[][] data = new String[ConfigRandom.COUNTGAMES][2];
+        String rule = "What is the result of the expression?";
+
+        for (int i = 0; i < ConfigRandom.COUNTGAMES; i++) {
+            int randomOper = Check.getRandom(ConfigRandom.OPER_RANDOM_CALC_GAME);
+            String operator = operators[randomOper];
+            int numberA = Check.getRandom(ConfigRandom.A_RANDOM_CALC_GAME);
+            int numberB = Check.getRandom(ConfigRandom.B_RANDOM_CALC_GAME);
+            data[i][0] = "Question: " + numberA + " " + operator + " " + numberB;
+            data[i][1] = Check.checkCalc(numberA, numberB, operator);
         }
-        if (correct == countGames) {
-            System.out.println("Congratulations, " + namePlayer + "!");
-        }
+        Engine.game(rule, data);
     }
 }

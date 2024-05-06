@@ -1,32 +1,19 @@
 package hexlet.code.games;
 
-import java.util.Random;
-import java.util.Scanner;
 import hexlet.code.Check;
+import hexlet.code.ConfigRandom;
+import hexlet.code.Engine;
 
 public class Gcd {
-    public static void gcdGame(Random random, int countGames, String namePlayer, Scanner s) {
-        final int randomA = 100;
-        final int randomB = 100;
-        System.out.println("Find the greatest common divisor of given numbers.");
-        int correct = 0;
-        while (correct < countGames) {
-            int numberA = random.nextInt(randomA);
-            int numberB = random.nextInt(randomB);
-            System.out.println("Question: " + numberA + " "  + numberB);
-            System.out.println("Your answer:");
-            String answer = s.nextLine();
-            String correctAnswer = Check.checkGcd(numberA, numberB);
-            if (correctAnswer.equals(answer.toLowerCase())) {
-                System.out.println("Correct!");
-                correct++;
-            } else {
-                Check.failed(correctAnswer, answer.toLowerCase(), namePlayer);
-                break;
-            }
+    public static void gcdGame() {
+        String rule = "Find the greatest common divisor of given numbers.";
+        String[][] data = new String[ConfigRandom.COUNTGAMES][2];
+        for (int i = 0; i < ConfigRandom.COUNTGAMES; i++) {
+            int numberA = Check.getRandom(ConfigRandom.A_RANDOM_GCD_GAME);
+            int numberB = Check.getRandom(ConfigRandom.B_RANDOM_GCD_GAME);
+            data[i][0] = "Question: " + numberA + " " + numberB;
+            data[i][1] = Check.checkGcd(numberA, numberB);
         }
-        if (correct == countGames) {
-            System.out.println("Congratulations, " + namePlayer + "!");
-        }
+        Engine.game(rule, data);
     }
 }
