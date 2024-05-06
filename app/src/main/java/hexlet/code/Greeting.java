@@ -12,6 +12,7 @@ public class Greeting {
             System.out.println("The name can't be blank! Enter again!");
             name = s.nextLine();
         }
+        System.out.println("Hello, " + name + "!");
         return name;
     }
 }

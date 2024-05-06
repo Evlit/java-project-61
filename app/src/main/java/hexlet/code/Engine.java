@@ -5,11 +5,9 @@ import java.util.Scanner;
 public class Engine {
     public static void game(String rule, String[][] data) {
         Scanner s = new Scanner(System.in);
-        System.out.println("Welcome to the Brain Games!");
-        System.out.println("May I have your name?");
-        String name = s.nextLine();
-        System.out.println("Hello, " + name + "!");
+        String name = Greeting.getMame();
         System.out.println(rule);
+
         for (int i = 0; i < ConfigRandom.COUNTGAMES; i++) {
             System.out.println(data[i][0]);
             System.out.println("Your answer:");
