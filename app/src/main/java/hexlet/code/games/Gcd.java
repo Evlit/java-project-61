@@ -19,13 +19,13 @@ public class Gcd {
     }
 
     public static int checkGcd(int numberA, int numberB) {
-        int count = Math.min(numberA, numberB);
-        for (int n = count; n >= 1; n--) {
-            if (numberA % n == 0 && numberB % n == 0) {
-                count = n;
-                break;
+        while (numberA != 0 && numberB != 0) {
+            if (numberA > numberB) {
+                numberA = numberA % numberB;
+            } else {
+                numberB = numberB % numberA;
             }
         }
-        return count;
+        return numberA + numberB;
     }
 }
