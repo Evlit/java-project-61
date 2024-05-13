@@ -26,9 +26,14 @@ public class Calc {
     public static int checkCalc(int numberA, int numberB, String operator) {
         int result;
         switch (operator) {
-            case "+" -> result = numberA + numberB;
-            case "-" -> result = numberA - numberB;
-            default -> result = numberA * numberB;
+            case "+":
+                result = numberA + numberB;
+                break;
+            case "-":
+                result = numberA - numberB;
+                break;
+            default:
+                result = numberA * numberB;
         }
         return result;
     }
