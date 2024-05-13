@@ -3,12 +3,16 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
+    public static final int COUNTGAMES = 3;
     public static void game(String rule, String[][] data) {
         Scanner s = new Scanner(System.in);
-        String name = Greeting.getMame();
+        System.out.println("Welcome to the Brain Games!");
+        System.out.println("May I have your name?");
+        String name = s.nextLine();
+        System.out.println("Hello, " + name + "!");
         System.out.println(rule);
 
-        for (int i = 0; i < ConfigRandom.COUNTGAMES; i++) {
+        for (int i = 0; i < COUNTGAMES; i++) {
             System.out.println(data[i][0]);
             System.out.println("Your answer:");
             String answer = s.nextLine();
