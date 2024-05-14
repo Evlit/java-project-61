@@ -24,17 +24,11 @@ public class Calc {
     }
 
     public static int checkCalc(int numberA, int numberB, String operator) {
-        int result;
         switch (operator) {
-            case "+":
-                result = numberA + numberB;
-                break;
-            case "-":
-                result = numberA - numberB;
-                break;
-            default:
-                result = numberA * numberB;
+            case "+": return numberA + numberB;
+            case "-": return numberA - numberB;
+            case "*": return numberA * numberB;
+            default: throw new IllegalArgumentException("Wrong operator!");
         }
-        return result;
     }
 }

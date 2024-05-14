@@ -2,7 +2,7 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Cli {
-    public static String getMame() {
+    public static void getMame() {
         Scanner s = new Scanner(System.in);
         System.out.println("May I have your name?");
         String name = s.nextLine();
@@ -10,6 +10,6 @@ public class Cli {
             System.out.println("The name can't be blank! Enter again!");
             name = s.nextLine();
         }
-        return name;
+        System.out.println("Hello, " + name + "!");
     }
 }

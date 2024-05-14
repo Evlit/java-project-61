@@ -12,8 +12,12 @@ public class Even {
         for (int i = 0; i < Engine.COUNTGAMES; i++) {
             int randomNumber = Util.getRandom(MAX_RANDOM_EVEN_GAME);
             data[i][0] = "Question: " + randomNumber;
-            data[i][1] = randomNumber % 2 == 0 ? "yes" : "no";
+            data[i][1] = checkEven(randomNumber) ? "yes" : "no";
         }
         Engine.game(rule, data);
+    }
+
+    public static boolean checkEven(int number) {
+        return number % 2 == 0;
     }
 }

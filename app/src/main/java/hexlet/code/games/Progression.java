@@ -27,13 +27,9 @@ public class Progression {
 
     public static String[] getProgression(int start, int step) {
         final int longArray = 10;
-        int[] amount = new int[longArray];
         String[] string = new String[longArray];
-        amount[0] = start;
-        string[0] = String.valueOf(start);
-        for (int i = 1; i < amount.length; i++) {
-            amount[i] = amount[i - 1] + step;
-            string[i] = String.valueOf(amount[i]);
+        for (int i = 0; i < string.length; i++) {
+            string[i] = String.valueOf(start + i * step);
         }
         return string;
     }
